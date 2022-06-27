@@ -1,0 +1,4 @@
+<div class="fs-3 my-4">Register for a Tournament</div>
+<% @tournaments.each do |tournament| %>
+  <%= render 'form', resource: @resource, tournament: tournament %>
+<% end %>

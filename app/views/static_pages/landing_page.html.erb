@@ -1,0 +1,40 @@
+<h1>Welcome to ƛƤC</h1>
+<p>These are the active tournaments in which you can participate</p>
+
+<style>
+    .list-group-item {border-color: #333 !important;padding-top: 1%;}
+</style>
+
+
+  <% @resources.each do |tournament| %>
+    <%= render 'tournaments/tournament', tournament: tournament %>
+  <% end %>
+
+
+<p class="my-3">You must be logged in to register for a tournament</p>
+<p>If you have registered, don't leave your partner behind! If you won't be able to ship to war, unregister 2 days before!</p>
+<br><br>
+
+<div id="carouselExampleControls" class="carousel slide w-25" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4427.jpg?w=1000&ssl=1" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/08/COD-Mobile-MX9.jpg?w=1428&ssl=1" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4476.jpg?w=1000&ssl=1" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<br><br>

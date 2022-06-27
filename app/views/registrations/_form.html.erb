@@ -1,0 +1,31 @@
+<%= render "layouts/shared/error_messages", resource: resource %>
+
+<%= form_for resource do |f| %>
+<% puts resource.inspect %>
+  <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Toggle button</button>
+  <%= f.hidden_field :user_id, value: current_user.id, class:"me-3" %>
+  <ul class="list-group list-group-flush col-12 col-md-6 col-lg-9 col-lg-3">
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold"><%= tournament.name %> <%= tournament.game_mode %></div>
+        <%= tournament.start_date %>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <span class="badge bg-primary rounded-pill py-2 px-3 mb-2 font-weight-light fs-6">23 players</span>
+        <div class="flex-row">
+          <%= add_button status: resource.active %>
+        </div>
+      </div>
+    </li>
+  </ul>
+<% end %>
+
+<!--  <div class="d-flex justify-content-between">-->
+<!--    <div><%#= tournament.name %></div>-->
+<!--    <div><%#= tournament.start_date %></div>-->
+<!--    <div><%#= tournament.game_mode %></div>-->
+<!--    <div><%#= tournament.team_members %></div>-->
+<!--    <div><%#= tournament.rounds %></div>-->
+<!--  </div>-->
+
+

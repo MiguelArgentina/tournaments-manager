@@ -1,0 +1,26 @@
+es:
+  activerecord:
+    attributes:
+      tournament:
+        game_mode: Modo
+        name: Nombre
+        rounds: Rondas
+        start_date: Inicio
+        team_members: Equipo
+        creator_id: Organizador
+        created_at: Creado
+        updated_at: Actualizado
+        auxiliary_text: "Esta descripción va estar colocada en atributo ALT de la imagén."
+    errors:
+      models:
+        tournament:
+          attributes:
+            name:
+              blank: ": debe proporcionar un nombre"
+            start_date:
+              blank: ": debe proporcionar fecha y hora del torneo"
+    models:
+      tournament:
+        one: Torneo
+        other: Torneos
+        many: Torneos

@@ -1,0 +1,40 @@
+es:
+  views:
+    common:
+      actions: Acciones
+      new_gender_male: Nuevo
+      new_gender_female: Nueva
+      add: Agregar
+      confirm_deletion: "¿Confirma que desea eliminar este item?"
+      delete: Eliminar
+      save: Guardar
+      edit: Editar
+      show: Mostrar
+      back: Volver
+      search: Buscar
+      register: Inscribirse
+      subscribed: Inscripto
+      pause: Desactivar
+      unpause: Activar
+      close: Cerrar
+      next: Próximo
+      previous: Anterior
+      cancel: Cancelar
+      confirm: Confirmar
+      back_to_list: Volver a listado
+      created:
+        success: Elemento guardado exitosamente
+        error: El elemento no pudo ser creado
+      destroyed:
+        success: Elemento eliminado exitosamente
+        error: No se pudo eliminar objeto
+      deactivated:
+        success: Cuenta desactivada exitosamente
+        error: La Cuenta ya se encuentra inactiva
+      load: Cargar
+      non_existent_page: La página solicitada no existe
+      page_not_found: Oops... Esta página no pudo ser encontrada
+      no_data_available: 'No hay datos para mostrar'
+      n_a: "N/D"
+      watch: ver
+      saving_error_message: " error/es prohibieron que se guarden los cambios"
