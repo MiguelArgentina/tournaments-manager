@@ -1,7 +1,8 @@
-@import 'bootstrap/scss/bootstrap';
+//@import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import './flatpickr/dist/flatpickr';
 
 /* Optionally, you can include any of the flatpickr themes by adding in their styles, like so: */
 @import './flatpickr/dist/themes/dark';
-@import 'nairobi'
+@import "bootstrap_custom";
+@import "custom_styles";

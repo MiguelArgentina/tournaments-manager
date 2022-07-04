@@ -8,6 +8,7 @@
 #  rounds       :integer
 #  start_date   :datetime
 #  team_members :integer
+#  time_zone    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  creator_id   :bigint           not null

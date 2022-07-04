@@ -80,3 +80,6 @@ gem "annotate", group: :development
 gem 'pry', '~> 0.13.1'
 gem 'country_select', '~> 6.0'
 
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', "~> 1.0"

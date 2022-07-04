@@ -22,6 +22,7 @@
 class Registration < ApplicationRecord
   belongs_to :user
   belongs_to :tournament
+  belongs_to :upcoming_first, -> { order start_date: :desc }, foreign_key: :tournament_id, class_name: 'Tournament'
 
 
   scope :mine, -> { where(user_id: current_user.id) }

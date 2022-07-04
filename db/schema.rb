@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_26_045340) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_03_213654) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,13 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_045340) do
     t.bigint "creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "time_zone"
     t.index ["creator_id"], name: "index_tournaments_on_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "uid"
+    t.string "game_uid"
     t.string "codnickname"
     t.string "cellphone"
     t.string "time_zone"
@@ -60,6 +61,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_26_045340) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "country_code"
+    t.string "provider", limit: 100, default: "", null: false
+    t.string "uid", limit: 100, default: "", null: false
+    t.string "avatar_url"
+    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -8,6 +8,7 @@
 #  rounds       :integer
 #  start_date   :datetime
 #  team_members :integer
+#  time_zone    :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  creator_id   :bigint           not null
@@ -32,6 +33,15 @@ class Tournament < ApplicationRecord
 
   scope :active, -> { where("start_date >= ?", Time.zone.now) }
   scope :inactive, -> { where("start_date < ?", Time.zone.now) }
+  scope :newest_first, -> { order('start_date desc') }
 
   MAX_ROUNDS = 10
+
+  def active?
+    start_date.after? Time.zone.now
+  end
+
+  def expired?
+    start_date.before? Time.zone.now
+  end
 end

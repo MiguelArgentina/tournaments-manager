@@ -5,32 +5,32 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="field">
     <%= f.label :time_zone %><br />
-    <%= f.time_zone_select :time_zone, nil, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first,:prompt=>"Select Time Zone" %>
+    <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :country_code %><br />
-    <%= f.country_select( :country_code, priority_countries: ["PY", "AR"], priority_countries_divider: "~~~~~~") %>
+    <%= f.country_select( :country_code,{}, priority_countries: ["PY", "AR"], priority_countries_divider: "~~~~~~", class:"form-select", style:"border: 1px solid #343a40 !important;") %>
   </div>
 
   <div class="field">
-    <%= f.label :uid %><br />
-    <%= f.text_field :uid, autofocus: true, autocomplete: "uid" %>
+    <%= f.label :game_uid %><br />
+    <%= f.text_field :game_uid, autofocus: true, autocomplete: "uid", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="field">
     <%= f.label :codnickname %><br />
-    <%= f.text_field :codnickname, autofocus: true, autocomplete: "nickname" %>
+    <%= f.text_field :codnickname, autofocus: true, autocomplete: "nickname", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="field">
     <%= f.label :cellphone %><br />
-    <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone" %>
+    <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <br>
@@ -40,17 +40,19 @@
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class:"btn btn-outline-success mt-4 mb-3" %>
   </div>
 <% end %>
 <br><br>
 <%= render "devise/shared/links" %>
+<br>
+<br>

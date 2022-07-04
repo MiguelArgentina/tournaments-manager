@@ -1,0 +1,12 @@
+<div class="fs-3 my-4">Showing a Tournament</div>
+<%=  @resource.name %>
+<br>
+<%=  @resource.start_date %>
+<br>
+<br>
+<ol>
+<% @registrations.each do |registration| %>
+<li><%=  registration.user.email %></li>
+<% end %>
+</ol>
+

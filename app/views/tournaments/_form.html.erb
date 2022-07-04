@@ -1,39 +1,49 @@
 <%= render "layouts/shared/error_messages", resource: resource %>
 <%= form_for resource do |f| %>
-
+  <div class="bg-secondary rounded h-100 p-4">
   <%= f.hidden_field :creator_id, value: current_user.id, class:"me-3" %>
 
   <div class="row justify-content-between mt-5">
     <div class="mb-5 col-12 col-md-9 col-lg-7 mb-3 d-flex">
       <%= f.label :name, class:"me-3 align-self-center" %>
-      <%= f.text_field :name, class:"form-control", placeholder:"Torneo BR/Multi Duos/Singles/Teams" %>
+      <%= f.text_field :name, class:"form-control", placeholder:"Ej.: Torneo BR/Multi Duos/Singles/Teams", style:"border: 1px solid #343a40 !important;" %>
     </div>
   </div>
 
-  <div class="row justify-content-between mt-5">
+  <div class="row justify-content-between mt-3">
     <div class="col-12 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
       <%= f.label :game_mode, class:"me-3" %>
-      <%= f.select :game_mode, Tournament.game_modes.keys.to_a, class:"form-control"%>
+      <%= f.select :game_mode, Tournament.game_modes.keys.to_a, {}, {class:"form-select", style:"border: 1px solid #343a40 !important;"}%>
     </div>
 
     <div class="col-12 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
       <%= f.label :team_members, class:"me-3" %>
-      <%= f.select :team_members, Tournament.team_members.keys.to_a, class:"form-control"%>
+      <%= f.select :team_members, Tournament.team_members.keys.to_a, {}, {class:"form-select", style:"border: 1px solid #343a40 !important;"}%>
     </div>
 
     <div class="col-12 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
       <%= f.label :rounds, class:"me-3" %>
-      <%= f.select :rounds, options_for_select(Array(1..Tournament::MAX_ROUNDS)), class:"form-control"%>
+      <%= f.select :rounds, options_for_select(Array(1..Tournament::MAX_ROUNDS)), {}, {class:"form-select", style:"border: 1px solid #343a40 !important;"} %>
     </div>
+
 
     <div class="col-9 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
       <%= f.label :start_date %><br>
-      <%= f.text_field :start_date, class: "w-75", style:"font-size: 0.8rem;", id: 'flatpickr-calendar' %>
+      <%= f.text_field :start_date, {class: "w-75 form-control", placeholder: "Elija fecha y hora", style:"font-size: 0.8rem;", id: 'flatpickr-calendar'} %>
+    </div>
+
+    <div class="col-9 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
+      <%= f.label :time_zone %><br />
+      <%= f.time_zone_select( :time_zone, TZInfo::Timezone.all.select{|c| c=~/America/}, {default: "America/Asuncion"}, {class: "form-select", style: "border: 1px solid #343a40 !important;"})%><br />
+    </div>
+
+    <div class="col-9 col-md-4 col-lg-3 m-2 d-flex justify-content-between align-items-center">
     </div>
   </div>
 
   <div class="text-center mt-5">
     <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
   </div>
 
 <% end %>
@@ -47,7 +57,7 @@
         minDate:         "today",
         altFormat:       "F j, Y at h:i K",
         dateFormat:      "Y-m-d H:i",
-        minuteIncrement: 10,
+        minuteIncrement: 5,
         locale: 'es',
     });
 </script>

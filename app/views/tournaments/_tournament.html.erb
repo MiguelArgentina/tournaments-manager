@@ -1,19 +1,23 @@
-<ul class="list-group list-group-flush col-12 col-md-6 col-lg-9 col-lg-3">
+<ul class="list-group col-12 col-md-6 col-lg-9 col-lg-3">
   <%= form_with url: registrations_register_player_url do |f| %>
     <% if current_user %>
       <%= f.hidden_field :user_id, value: current_user&.id, class:"me-3" %>
       <%= f.hidden_field :tournament_id, value: tournament.id, class:"me-3" %>
       <%= f.hidden_field :active, value: user_is_registered?(tournament_id: tournament.id).nil? ? nil : user_is_registered?(tournament_id: tournament.id), class:"me-3" %>
     <% end %>
-    <li class="border-0 border-bottom mb-2 pb-2 list-group-item-action d-flex justify-content-between align-items-start">
+    <li class="tournament-list-item bg-secondary rounded border-3 border-bottom border-secondary mb-2 px-2 py-3 d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto text-white-50">
-        <div class="fw-bold"><span class="text-warning text-decoration-underline"><%= tournament.name %></span> <span class="text-white fw-light"><%= tournament.game_mode %> (<%= tournament.team_members %>)</span></div>
-        <%= tournament.start_date %>
+        <div class="fw-bold">
+          <span><%= link_to tournament.name, tournament, class:"text-warning text-decoration-underline" %></span>
+          <span class="text-white fw-light ms-2"><%= tournament.game_mode %> (<%= tournament.team_members %>)</span>
+        </div>
+        <%= "#{tournament.start_date.strftime("%d/%m/%Y - %H:%M")} (#{tournament.time_zone}) " %>
+        <%= "| #{tournament.active? ? "Dentro de " : "Hace "} #{distance_of_time_in_words(Time.now, tournament.start_date)}" %>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <span class="badge bg-primary bg-opacity-75 text-white rounded-pill py-2 px-3 mb-2 font-weight-light fs-6">23 players</span>
+        <span class="badge bg-primary bg-opacity-75 text-white rounded-pill py-2 px-3 mb-2 font-weight-light fs-6"><%= number_of_players tournament: tournament %></span>
         <div class="flex-row">
-          <%= add_button status: user_is_registered?(tournament_id: tournament.id) %>
+          <%= add_button status: user_is_registered?(tournament_id: tournament.id), expired: tournament.expired? %>
         </div>
       </div>
     </li>
