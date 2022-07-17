@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br/>
+  <%= link_to "Log in", new_session_path(resource_name), class:"btn btn-outline-primary mt-4 mb-3" %><br/>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -24,7 +24,7 @@
                 url: omniauth_authorize_path(resource_name, provider),
                 method: :post,
                 data: {turbo: "false"} do |f| %>
-      <%= f.submit "Login", type: "image", src: url_for('/assets/google_sign_in_button.png') %>
+      <%= f.submit "Login", type: "image", src: url_for('/assets/google_sign_in_button.png'), class: "my-2 col-4 col-md-2" %>
     <% end %>
   <% end %>
 <% end %>

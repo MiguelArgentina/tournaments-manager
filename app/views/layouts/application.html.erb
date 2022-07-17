@@ -18,8 +18,8 @@
     <div>
       <%= render "layouts/shared/navbar" %>
     </div>
-    <%= render "layouts/shared/flash_messages" if flash.any? %>
     <div class="container-fluid">
+      <%= render "layouts/shared/flash_messages" if flash.any? %>
       <%= yield %>
     </div>
   </body>
