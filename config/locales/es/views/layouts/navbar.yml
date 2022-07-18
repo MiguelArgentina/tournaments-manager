@@ -1,0 +1,8 @@
+es:
+  views:
+    layouts:
+      navbar:
+        all_tournaments: "Todos los torneos"
+        active_tournaments: "Torneos activos"
+        ranking: "Ranking ƛƤC"
+        my_agenda: "Mis torneos"

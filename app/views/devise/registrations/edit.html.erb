@@ -1,71 +1,72 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= "#{t('views.common.edit')} #{resource_name.to_s.classify.constantize.model_name.human}" %></h2>
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <%= form_for(resource, url: user_registration_url, html: { method: :put }) do |f| %>
 
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :country_code %><br />
     <%= f.country_select( :country_code,{}, priority_countries: ["PY", "AR"], priority_countries_divider: "~~~~~~", class:"form-select", style:"border: 1px solid #343a40 !important;") %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :game_uid %><br />
     <%= f.text_field :game_uid, autofocus: true, autocomplete: "uid", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :codnickname %><br />
     <%= f.text_field :codnickname, autofocus: true, autocomplete: "nickname", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :cellphone %><br />
     <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><%= t('devise.registrations.waiting_confirmation') %>: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <br><br>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
+    <%= f.label :password %> <i>(<%= t('devise.registrations.leave_blank_if_not_changing') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= "#{@minimum_password_length} #{t('devise.registrations.minimum_characters')}" %></em>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
+    <%= f.label :current_password %> <i>(<%= t('devise.registrations.need_current_password') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
   <br><br>
   <div class="actions">
-    <%= f.submit "Update", class:"btn btn-outline-info m-2" %>
+    <%= f.submit t('devise.registrations.update'), class:"btn btn-outline-info m-2" %>
   </div>
 <% end %>
 <br><br><br>
-<h3>Cancel my account</h3>
+<h3><%= t('devise.registrations.cancel') %></h3>
 
-<p>Unhappy?<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-warning m-2" %></p>
+<p><%= t('devise.registrations.unhappy') %><%= button_to t('devise.registrations.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-warning m-2" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to t('views.common.back'), :back %>
+<div class="mt-5"></div>

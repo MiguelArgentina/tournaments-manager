@@ -13,6 +13,10 @@ es:
         time_zone: 'Zona Horaria'
         created_at: Creado
         updated_at: Actualizado
+        remember_me: Recordarme
+        password: Contraseña
+        current_password: Contraseña actual
+        password_confirmation: Confirmar contraseña
     errors:
       models:
         user:

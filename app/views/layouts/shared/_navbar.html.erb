@@ -8,19 +8,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%= link_to "All tournaments", tournaments_path, class: "nav-item nav-link" %>
-        <%= link_to "Active tournaments", tournaments_path(active: true), class: "nav-item nav-link" %>
-        <%= link_to "ƛƤC ranking", "#", class: "nav-item nav-link" %>
-        <%= link_to "My agenda", tournaments_my_agenda_path, class: "nav-item nav-link" %>
+        <%= link_to t('views.layouts.navbar.all_tournaments'), tournaments_path, class: "nav-item nav-link" %>
+        <%= link_to t('views.layouts.navbar.active_tournaments'), tournaments_path(active: true), class: "nav-item nav-link" %>
+        <%= link_to t('views.layouts.navbar.ranking'), "#", class: "nav-item nav-link" %>
+        <%= link_to t('views.layouts.navbar.my_agenda'), tournaments_my_agenda_path, class: "nav-item nav-link" %>
       </ul>
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
           <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-item nav-link btn btn-link" %>
+          <%= button_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete, class: "nav-item nav-link btn btn-link" %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
-          <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
+          <%= link_to t('devise.registrations.sign_up'), new_user_registration_path, class: "nav-item nav-link" %>
+          <%= link_to t('devise.sessions.log_in'), new_user_session_path, class: "nav-item nav-link" %>
         <% end %>
       </ul>
     </div>

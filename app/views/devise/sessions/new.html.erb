@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2><%= t('devise.sessions.log_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="field col-12 col-md-6 col-lg-4">
@@ -19,7 +19,7 @@
   <% end %>
 
   <div class="actions mt-2 mb-4">
-    <%= f.submit "Log in", class: "btn btn-primary" %>
+    <%= f.submit t('devise.sessions.log_in'), class: "btn btn-primary" %>
   </div>
 <% end %>
 

@@ -1,41 +1,41 @@
-<h2>Sign up</h2>
+<h2 class="mt-4"><%= t('devise.registrations.sign_up').capitalize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-2">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :country_code %><br />
     <%= f.country_select( :country_code,{}, priority_countries: ["PY", "AR"], priority_countries_divider: "~~~~~~", class:"form-select", style:"border: 1px solid #343a40 !important;") %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :game_uid %><br />
     <%= f.text_field :game_uid, autofocus: true, autocomplete: "uid", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :codnickname %><br />
     <%= f.text_field :codnickname, autofocus: true, autocomplete: "nickname", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :cellphone %><br />
     <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <br>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :password %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -43,13 +43,13 @@
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="field col-12 col-md-6 col-lg-4">
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-outline-success mt-4 mb-2" %>
+  <div class="actions mt-3">
+    <%= f.submit t('devise.registrations.sign_up'), class:"btn btn-outline-success mt-4 mb-2" %>
   </div>
 <% end %>
 <br><br>
