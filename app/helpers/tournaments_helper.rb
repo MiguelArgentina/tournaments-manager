@@ -3,12 +3,11 @@ module TournamentsHelper
     players = tournament.registrations.where(active: true).count
     case players
     when 0
-      "No players"
+      t('views.tournaments.no_players')
     when 1
-      "1 player"
+      t('views.tournaments.one_player')
     else
-      "#{players} players"
-
+      "#{players} #{t('views.tournaments.many_players')}"
     end
   end
 end

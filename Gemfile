@@ -83,3 +83,5 @@ gem 'country_select', '~> 6.0'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', "~> 1.0"
+gem 'rails-i18n'
+gem 'geocoder'

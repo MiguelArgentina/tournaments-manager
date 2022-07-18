@@ -3,10 +3,18 @@ es:
     attributes:
       tournament:
         game_mode: Modo
+        game_modes:
+          br: Battle Royale
+          multi: Multijugador
+          versus: 1 vs 1
         name: Nombre
         rounds: Rondas
         start_date: Inicio
-        team_members: Equipo
+        team_member: Equipo
+        team_members:
+          single: Solo
+          duos: Duos
+          squad: Escuadrón
         creator_id: Organizador
         created_at: Creado
         updated_at: Actualizado

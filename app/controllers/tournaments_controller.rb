@@ -21,7 +21,7 @@ class TournamentsController < ApplicationController
   private
   def resource_params
     accessible = []
-    accessible << [:rounds, :game_mode, :creator_id, :team_members, :start_date, :name, :time_zone]
+    accessible << [:rounds, :game_mode, :creator_id, :team_member, :start_date, :name, :time_zone]
     params.require(:tournament).permit(accessible)
   end
 end

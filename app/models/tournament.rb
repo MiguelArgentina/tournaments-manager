@@ -2,16 +2,16 @@
 #
 # Table name: tournaments
 #
-#  id           :bigint           not null, primary key
-#  game_mode    :integer
-#  name         :string
-#  rounds       :integer
-#  start_date   :datetime
-#  team_members :integer
-#  time_zone    :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  creator_id   :bigint           not null
+#  id          :bigint           not null, primary key
+#  game_mode   :integer
+#  name        :string
+#  rounds      :integer
+#  start_date  :datetime
+#  team_member :integer
+#  time_zone   :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  creator_id  :bigint           not null
 #
 # Indexes
 #
@@ -29,7 +29,7 @@ class Tournament < ApplicationRecord
   validates :start_date, presence: true
 
   enum :game_mode, %i(br multi versus)
-  enum :team_members, %i(single duos squad)
+  enum :team_member, %i(single duos squad)
 
   scope :active, -> { where("start_date >= ?", Time.zone.now) }
   scope :inactive, -> { where("start_date < ?", Time.zone.now) }

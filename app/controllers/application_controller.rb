@@ -1,11 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:landing_page]
-  before_action :stop_process
 
-  def stop_process
-    #binding.pry
-  end
 
   protected
 

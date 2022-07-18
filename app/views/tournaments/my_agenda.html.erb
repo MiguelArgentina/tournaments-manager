@@ -1,5 +1,4 @@
-<h1>Tournaments#my agenda</h1>
-<p>Find me in app/views/tournaments/my_agenda.html.erb</p>
+<h1><%= t('views.tournaments.my_agenda') %></h1>
 <% @resources.each do |registration| %>
   <%= render 'tournament', tournament: registration.tournament if registration.active && registration.tournament.active? %>
 <% end %>

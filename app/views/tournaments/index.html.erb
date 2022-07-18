@@ -1,5 +1,4 @@
-<h1>Tournaments#index</h1>
-<p>Find me in app/views/tournaments/index.html.erb</p>
+<h1><%= t('views.tournaments.available_tournaments') %></h1>
 <% @resources.each do |tournament| %>
   <%= render 'tournament', tournament: tournament %>
 <% end %>

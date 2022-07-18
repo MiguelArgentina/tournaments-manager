@@ -2,16 +2,16 @@
 #
 # Table name: tournaments
 #
-#  id           :bigint           not null, primary key
-#  game_mode    :integer
-#  name         :string
-#  rounds       :integer
-#  start_date   :datetime
-#  team_members :integer
-#  time_zone    :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  creator_id   :bigint           not null
+#  id          :bigint           not null, primary key
+#  game_mode   :integer
+#  name        :string
+#  rounds      :integer
+#  start_date  :datetime
+#  team_member :integer
+#  time_zone   :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  creator_id  :bigint           not null
 #
 # Indexes
 #

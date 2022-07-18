@@ -1,0 +1,28 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        cellphone: "Celular"
+        codnickname: 'Nick CODM'
+        country_code: 'País'
+        email: 'Email'
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+        full_name: 'Nombre'
+        game_uid: 'CODM UID'
+        time_zone: 'Zona Horaria'
+        created_at: Creado
+        updated_at: Actualizado
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: ": debe proporcionar un nombre"
+            start_date:
+              blank: ": debe proporcionar fecha y hora del torneo"
+    models:
+      user:
+        one: Jugador
+        other: Jugadores
+        many: Jugadores

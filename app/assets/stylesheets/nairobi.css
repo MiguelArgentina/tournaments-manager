@@ -51,6 +51,7 @@ small, .small {
   --bs-white: #fff;
   --bs-primary-rgb: 156, 34, 36;
   --bs-secondary-rgb: 74, 74, 79;
+  --bs-yellow-rgb: 250, 169, 56;
   --bs-success-rgb: 26, 160, 83;
   --bs-info-rgb: 7, 154, 162;
   --bs-warning-rgb: 241, 106, 27;
@@ -6798,6 +6799,10 @@ textarea.form-control-lg {
 .text-secondary {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important; }
+
+.text-yellow {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-yellow-rgb), var(--bs-text-opacity)) !important; }
 
 .text-success {
   --bs-text-opacity: 1;
@@ -14639,7 +14644,7 @@ th {
   border-radius: 50rem; }
 
 /*
- * Background color 
+ * Background color
  */
 .bg-soft-primary {
   color: #8c1f20;

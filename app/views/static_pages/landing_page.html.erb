@@ -1,19 +1,11 @@
-<h1>Welcome to ƛƤC</h1>
-<p>These are the active tournaments in which you can participate</p>
+<h1 class="mt-4"><%= t('views.landing_page.welcome_to_clan_name') %></h1>
+<p class="my-3"><%= t('views.landing_page.login_needed') %></p>
+
 
 <style>
     .list-group-item {border-color: #333 !important;padding-top: 1%;}
 </style>
-
-
-  <% @resources.each do |tournament| %>
-    <%= render 'tournaments/tournament', tournament: tournament %>
-  <% end %>
-
-
-<p class="my-3">You must be logged in to register for a tournament</p>
-<p>If you have registered, don't leave your partner behind! If you won't be able to ship to war, unregister 2 days before!</p>
-<br><br>
+<br>
 
 <div id="carouselExampleControls" class="carousel slide w-25" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -38,3 +30,11 @@
 </div>
 
 <br><br>
+<p><%= t('views.landing_page.available_tournaments') %></p>
+<p><%= t('views.landing_page.unregister_message') %></p>
+<br>
+
+  <% @resources.each do |tournament| %>
+    <%= render 'tournaments/tournament', tournament: tournament %>
+  <% end %>
+

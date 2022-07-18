@@ -1,0 +1,17 @@
+es:
+  views:
+    tournaments:
+      name: "Ej.: Torneo BR/Multi Duos/Singles/Teams"
+      choose_date_and_time: "Elija fecha y hora"
+      will_take_place_in: "Dentro de "
+      took_place_in: "Hace "
+      available_tournaments: "Torneos disponibles"
+      no_players: "Sin jugadores"
+      one_player: "1 jugador"
+      many_players: "jugadores"
+      ended: 'Finalizado'
+      quit: 'Abandonar'
+      play: 'Jugar'
+      my_agenda: "Mis próximos torneos"
+      create_tournament: "Crear torneo"
+      registered_players: "Jugadores inscriptos"
