@@ -5,4 +5,6 @@ es:
       available_tournaments: "Estos son los torneos en los que puedes participar"
       login_needed: "Recuerda que debes iniciar sesión para poder inscribirte"
       unregister_message: "Si te has inscripto, ¡no dejes atrás a tu equipo! Si no podrás partir a la guerra, ¡desregístrate al menos 2 días antes!"
+      clan_news: "Avisos del clan"
+      tournaments_results: "Posiciones de los últimos torneos"
     dashboard:

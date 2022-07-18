@@ -7,34 +7,63 @@
 </style>
 <br>
 
-<div id="carouselExampleControls" class="carousel slide w-25" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4427.jpg?w=1000&ssl=1" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/08/COD-Mobile-MX9.jpg?w=1428&ssl=1" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4476.jpg?w=1000&ssl=1" class="d-block w-100" alt="...">
+<div class="row">
+  <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3">
+    <p class="mb-3 text-primary"><%= t('views.landing_page.clan_news') %></p>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4427.jpg?w=1000&ssl=1" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/08/COD-Mobile-MX9.jpg?w=1428&ssl=1" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://i0.wp.com/gamingonphone.com/wp-content/uploads/2021/07/IMG_4476.jpg?w=1000&ssl=1" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+  <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3">
+    <p class="mb-3 text-primary"><%= t('views.landing_page.tournaments_results') %></p>
+    <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/codm/CODM-TOURNAMENT-TOUT.jpg" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/codm/CODM-TOURNAMENT-002.jpg" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/body/codm/CODM-TOURNAMENT-001.jpg" class="d-block w-100 carrousel-image" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>
 <br><br>
 <p><%= t('views.landing_page.available_tournaments') %></p>
 <p><%= t('views.landing_page.unregister_message') %></p>
 <br>
 
-  <% @resources.each do |tournament| %>
-    <%= render 'tournaments/tournament', tournament: tournament %>
-  <% end %>
+<% @resources.each do |tournament| %>
+  <%= render 'tournaments/tournament', tournament: tournament %>
+<% end %>
 
