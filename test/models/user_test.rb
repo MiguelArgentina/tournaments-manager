@@ -26,6 +26,7 @@
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
 #  time_zone              :string
+#  type                   :string
 #  uid                    :string(100)      default(""), not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null

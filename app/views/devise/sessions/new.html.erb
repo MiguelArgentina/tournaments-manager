@@ -1,4 +1,4 @@
-<h2><%= t('devise.sessions.log_in') %></h2>
+<h2><%= "#{t('devise.sessions.log_in')} como #{request.path.split("/")[1].humanize.singularize}" %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="field col-12 col-md-6 col-lg-4">

@@ -5,9 +5,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    if request.path.split("/")[1] == 'clan_leaders'
+      flash[:error]='Only players can register for new accounts. Clan leaders are managed by other Clan Leaders'
+      redirect_to root_path and return
+    end
+    super
+  end
 
   # POST /resource
   # def create

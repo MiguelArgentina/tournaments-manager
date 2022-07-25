@@ -19,6 +19,13 @@
       <%= render "layouts/shared/navbar" %>
     </div>
     <div class="container-fluid">
+      <% if player_signed_in? %>
+        <p>I'm a Player</p>
+      <% end %>
+
+      <% if clan_leader_signed_in? %>
+        <p>I'm a Clan Leader</p>
+      <% end %>
       <%= render "layouts/shared/flash_messages" if flash.any? %>
       <%= yield %>
     </div>

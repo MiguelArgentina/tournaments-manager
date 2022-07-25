@@ -16,14 +16,15 @@
 
       <ul class="navbar-nav mb-2 mb-lg-0">
         <% if user_signed_in? %>
-          <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
-          <%= button_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete, class: "nav-item nav-link btn btn-link" %>
+          <%= link_to current_user.email, "/#{current_user.type.pluralize.underscore}/edit", class: "nav-item nav-link" %>
+          <%= button_to "#{t('devise.sessions.sign_out')}", "/#{current_user.type.pluralize.underscore}/sign_out", method: :delete, class: "nav-item nav-link btn btn-link" %>
         <% else %>
-          <%= link_to t('devise.registrations.sign_up'), new_user_registration_path, class: "nav-item nav-link" %>
-          <%= link_to t('devise.sessions.log_in'), new_user_session_path, class: "nav-item nav-link" %>
-          <%= link_to new_user_session_path, class: "nav-item nav-link" do %>
-            <%= image_tag 'google_sign_in_navbar.png', class: "rounded bg-white", style: "width: 6rem;" %>
-          <% end %>
+          <%= link_to t('devise.registrations.sign_up'), new_player_registration_path, class: "nav-item nav-link" %>
+          <%= link_to t('devise.sessions.log_in'), new_player_session_path, class: "nav-item nav-link" %>
+          <%= link_to "#{t('devise.sessions.log_in')} Lider", new_clan_leader_session_path, class: "nav-item nav-link" %>
+          <%#= button_to player_google_oauth2_omniauth_authorize_path, class: "nav-item nav-link", method: :post, data: {turbo: false} do %>
+            <%#= image_tag 'google_sign_in_navbar.png', class: "rounded bg-white", style: "width: 6rem;" %>
+          <%# end %>
 
         <% end %>
       </ul>

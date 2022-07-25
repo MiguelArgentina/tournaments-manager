@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Players::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
@@ -12,16 +12,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # https://github.com/heartcombo/devise#omniauth
 
   # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+  def passthru
+    super
+  end
 
   # GET|POST /users/auth/twitter/callback
   # def failure
   #   super
   # end
   def google_oauth2
-    user = User.from_omniauth(auth)
+    user = Player.from_omniauth(auth)
     if user.present?
       sign_out_all_scopes
       flash[:success] = t 'devise.omniauth_callbacks.success', kind: auth.provider == 'google_oauth2' ? "Google" : auth.provider
@@ -37,9 +37,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def auth
     @auth ||= request.env['omniauth.auth']
   end
-  # protected
+  protected
 
-  # The path used when OmniAuth fails
+  #The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end

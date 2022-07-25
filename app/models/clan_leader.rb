@@ -1,0 +1,2 @@
+class ClanLeader < User
+end

@@ -1,6 +1,7 @@
 class TournamentsController < ApplicationController
   include DryController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :clan_leader_access, only: [:new, :update, :edit, :destroy]
 
   def index
     super
@@ -23,5 +24,16 @@ class TournamentsController < ApplicationController
     accessible = []
     accessible << [:rounds, :game_mode, :creator_id, :team_member, :start_date, :name, :time_zone]
     params.require(:tournament).permit(accessible)
+  end
+
+  def clan_leader_access
+    puts "#" * 50
+    puts current_user.clan_leader?
+    puts request.referer
+    puts "#" * 50
+    unless current_user.clan_leader?
+      flash[:error]='Only Clan Leaders can manage tournaments'
+      redirect_back fallback_location: root_path
+    end
   end
 end

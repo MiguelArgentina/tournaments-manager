@@ -1,7 +1,6 @@
 <%= render "layouts/shared/error_messages", resource: resource %>
 
 <%= form_for resource do |f| %>
-<% puts resource.inspect %>
   <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Toggle button</button>
   <%= f.hidden_field :user_id, value: current_user.id, class:"me-3" %>
   <ul class="list-group list-group-flush col-12 col-md-6 col-lg-9 col-lg-3">
