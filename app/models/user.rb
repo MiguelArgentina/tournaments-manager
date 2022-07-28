@@ -54,20 +54,4 @@ class User < ApplicationRecord
   def clan_leader?
     type == 'ClanLeader'
   end
-
-  def self.from_omniauth(auth)
-    user = User.find_by('email = ?', auth['info']['email'])
-    if user.blank?
-      user = User.new(
-        {
-          provider: auth.provider,
-          uid: auth.uid,
-          email: auth.info.email,
-          password: Devise.friendly_token[0,20]
-        }
-      )
-      user.save!
-    end
-    user
-  end
 end

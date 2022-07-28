@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :players, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
   }
 
   devise_for :clan_leaders, controllers: {

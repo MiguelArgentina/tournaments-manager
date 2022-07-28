@@ -19,13 +19,18 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
+  <% puts resource_class %>
+  <% puts resource_class %>
+  <% puts resource_class %>
+  <% puts resource_class %>
+  <% puts resource_class %>
+  <% puts resource_class %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= form_for "Login",
-                url: omniauth_authorize_path(resource_name, provider),
-                method: :post,
+   <%= form_for "Login", url: omniauth_authorize_path(resource_name, provider), method: :post,
                 data: {turbo: "false"} do |f| %>
       <%= f.submit t('devise.sessions.log_in'), type: "image", src: url_for('/assets/google_sign_in_button.png'), class: "my-2 col-4 col-md-2" %>
     <% end %>
   <% end %>
 <% end %>
+
 
