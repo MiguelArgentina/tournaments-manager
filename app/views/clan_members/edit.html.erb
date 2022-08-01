@@ -1,16 +1,17 @@
-<h2 class="mt-4"><%= t('devise.registrations.sign_up').capitalize %></h2>
+<h2><%= "#{t('views.common.edit')} #{resource_name.to_s.classify.constantize.model_name.human}" %></h2>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: "/#{request.path.split("/")[1]}") do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, url: "/#{request.path.split("/")[1]}", html: { method: :put }) do |f| %>
 
-  <div class="field col-12 col-md-6 col-lg-4 mt-2">
+
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :time_zone %><br />
-    <%= f.select(:time_zone, @time_zones, options = {}, html_options = {:class =>"time-zone-selector form-select bg-secondary"}) %>
+    <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
   </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
@@ -33,14 +34,19 @@
     <%= f.text_field :cellphone, autofocus: true, autocomplete: "cellphone", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <br>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t('devise.registrations.waiting_confirmation') %>: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <br><br>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label :password %> <i>(<%= t('devise.registrations.leave_blank_if_not_changing') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= "#{@minimum_password_length} #{t('devise.registrations.minimum_characters')}" %></em>
+    <% end %>
   </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
@@ -48,16 +54,19 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
   </div>
 
-  <div class="actions mt-3">
-    <%= f.submit t('devise.registrations.sign_up'), class:"btn btn-outline-success mt-4 mb-2" %>
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
+    <%= f.label :current_password %> <i>(<%= t('devise.registrations.need_current_password') %>)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
+  </div>
+  <br><br>
+  <div class="actions">
+    <%= f.submit t('devise.registrations.update'), class:"btn btn-outline-info m-2" %>
   </div>
 <% end %>
-<br><br>
-<%= render "devise/shared/links" %>
-<br>
-<br>
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-        $('.time-zone-selector').select2();
-    });
-</script>
+<br><br><br>
+<h3><%= t('devise.registrations.cancel') %></h3>
+
+<p><%= t('devise.registrations.unhappy') %><%= button_to t('devise.registrations.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-warning m-2" %></p>
+
+<%= link_to t('views.common.back'), :back %>
+<div class="mt-5"></div>

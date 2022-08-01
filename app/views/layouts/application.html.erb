@@ -10,8 +10,14 @@
     <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
@@ -26,6 +32,10 @@
       <% if clan_leader_signed_in? %>
         <p>I'm a Clan Leader</p>
       <% end %>
+      <br>
+      <%=  Time.now.in_time_zone(current_user&.time_zone).strftime("%m/%d/%Y at %I:%M%p")
+      %>
+      <br>
       <%= render "layouts/shared/flash_messages" if flash.any? %>
       <%= yield %>
     </div>

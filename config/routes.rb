@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   }
 
   #get 'static_pages/dashboard'
-  resources :clan_leaders, only: [:new, :show]
+  resources :clan_leaders, only: [:new, :show] do
+    member do
+      resources :clan_members do
+        patch 'toggle_active', to: 'clan_members#toggle_active'
+      end
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -23,4 +29,5 @@ Rails.application.routes.draw do
   resources :tournaments, only: [:create, :update, :index, :new, :show]
   resources :registrations, only: [:create, :update, :index, :new]
   post 'registrations/register_player'
+  get "/time_zones/search" => "time_zones#search"
 end

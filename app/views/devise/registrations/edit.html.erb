@@ -11,7 +11,7 @@
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :time_zone %><br />
-    <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
+    <%= f.select(:time_zone, @time_zones, options = {}, html_options = {:class =>"time-zone-selector orm-control"}) %>
   </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
@@ -70,3 +70,9 @@
 
 <%= link_to t('views.common.back'), :back %>
 <div class="mt-5"></div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('.time-zone-selector').select2();
+    });
+</script>

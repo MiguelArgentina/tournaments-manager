@@ -17,6 +17,7 @@
 #  first_name             :string
 #  full_name              :string
 #  game_uid               :string
+#  is_active              :boolean
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string

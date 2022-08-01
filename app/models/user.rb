@@ -17,6 +17,7 @@
 #  first_name             :string
 #  full_name              :string
 #  game_uid               :string
+#  is_active              :boolean
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
@@ -47,11 +48,21 @@ class User < ApplicationRecord
   has_many :tournaments, foreign_key: :creator_id
   has_many :registrations
 
+  enum member_type: [:player, :clan_leader]
+
   def player?
     type == 'Player'
   end
 
   def clan_leader?
     type == 'ClanLeader'
+  end
+
+  def active_for_authentication?
+    super && is_active?
+  end
+
+  def inactive_message
+    is_active? ? super : :account_inactive
   end
 end

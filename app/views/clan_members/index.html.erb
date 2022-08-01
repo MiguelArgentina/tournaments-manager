@@ -1,0 +1,30 @@
+<h1>Clan members</h1>
+
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Type</th>
+      <th>Account status</th>
+    </tr>
+    <% @clan_members.each do |clan_member| %>
+      <tr>
+        <td><%= clan_member.email %></td>
+        <td><%= clan_member.type.underscore.humanize.titleize %></td>
+        <td>
+
+            <%= link_to "/clan_leaders/#{current_user.id}/clan_members/#{clan_member.id}/toggle_active", data: { "turbo-method": :patch }, class: "" do %>
+              <div class="form-check form-switch">
+                <%= turbo_frame_tag dom_id(clan_member) do %>
+                  <input type="checkbox"
+                         class= "form-check-input bg-danger"
+                         <% if clan_member.is_active %> checked <% end %> >
+                  <label class="form-check-label"><%= clan_member.is_active ? "Desactivar" : "Activar" %></label>
+                <% end %>
+              </div>
+            <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </table>
+

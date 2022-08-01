@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    get_time_zones
     if request.path.split("/")[1] == 'clan_leaders'
       flash[:error]='Only players can register for new accounts. Clan leaders are managed by other Clan Leaders'
       redirect_to root_path and return
@@ -19,9 +20,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    get_time_zones
+    super
+  end
 
   # PUT /resource
   # def update
@@ -33,10 +35,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params.delete("current_password")
       resource.update_without_password(params)
     else
+      get_time_zones
       resource.update_with_password(params)
     end
   end
 
+  private
+  def get_time_zones
+    @time_zones = TZInfo::Timezone.all.select{|c| c=~/America/}.map{|tz| [tz.to_s, tz.name]}
+  end
 
   # DELETE /resource
   # def destroy

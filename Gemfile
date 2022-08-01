@@ -18,9 +18,10 @@ gem "puma", "~> 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
+gem "importmap-rails", "~> 1.1"
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
@@ -87,3 +88,5 @@ gem 'omniauth-rails_csrf_protection', "~> 1.0"
 gem 'rails-i18n'
 gem 'geocoder'
 gem 'rails_12factor', group: :production
+
+

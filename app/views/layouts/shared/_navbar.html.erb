@@ -12,6 +12,10 @@
         <%= link_to t('views.layouts.navbar.active_tournaments'), tournaments_path(active: true), class: "nav-item nav-link" %>
         <%= link_to t('views.layouts.navbar.ranking'), "#", class: "nav-item nav-link" %>
         <%= link_to t('views.layouts.navbar.my_agenda'), tournaments_my_agenda_path, class: "nav-item nav-link" %>
+        <% if clan_leader_signed_in? %>
+          <%= link_to 'Agregar otro miembro', new_clan_member_path(current_clan_leader), class: "nav-item nav-link" %>
+          <%= link_to 'Administrar miembros', clan_members_path(current_clan_leader), class: "nav-item nav-link" %>
+        <% end %>
       </ul>
 
       <ul class="navbar-nav mb-2 mb-lg-0">

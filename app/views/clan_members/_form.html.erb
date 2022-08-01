@@ -1,7 +1,15 @@
-<h2 class="mt-4"><%= t('devise.registrations.sign_up').capitalize %></h2>
+<% puts action_name %>
+<% puts resource.persisted? %>
+<% puts resource.persisted? %>
+<% puts resource.persisted? %>
 
-<%= form_for(resource, as: resource_name, url: "/#{request.path.split("/")[1]}") do |f| %>
+<%= form_for resource, url: resource.persisted? ? clan_member_path : clan_members_path  do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field col-12 col-md-6 col-lg-4 mt-3">
+    <%= f.label :type %><br />
+    <%= f.select :type, User.member_types.map{|t| [t[0], t[0].classify]}, autofocus: true, autocomplete: "cellphone", class:"form-control", style:"border: 1px solid #343a40 !important;" %>
+  </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-2">
     <%= f.label :email %><br />
@@ -10,7 +18,7 @@
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
     <%= f.label :time_zone %><br />
-    <%= f.select(:time_zone, @time_zones, options = {}, html_options = {:class =>"time-zone-selector form-select bg-secondary"}) %>
+    <%= f.time_zone_select :time_zone, nil, {}, default: ActiveSupport::TimeZone.country_zones('py').map(&:to_s).first, :prompt => "Select Time Zone", :class => "form-control" %>
   </div>
 
   <div class="field col-12 col-md-6 col-lg-4 mt-3">
@@ -52,12 +60,3 @@
     <%= f.submit t('devise.registrations.sign_up'), class:"btn btn-outline-success mt-4 mb-2" %>
   </div>
 <% end %>
-<br><br>
-<%= render "devise/shared/links" %>
-<br>
-<br>
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-        $('.time-zone-selector').select2();
-    });
-</script>
